@@ -4,10 +4,9 @@ import replacement_code, permutation_cipher, gamma_code
 def gen_key():
     try:
         method = input('Выберите метод для генерации ключа:\n1)Замена\n2)Перестановка\n3)Гаммирование\n\n')
-        out = open(input('Введите название: ') + '.key', 'w+', encoding='utf-8')
         if not method in ['1', '2', '3']:
-            print('Ошибка')
-            return
+            raise Exception('Неверный выбор метода')
+        out = open(input('Введите название: ') + '.key', 'w+', encoding='utf-8')
         alp_path = input('Выберите путь до алфавита\n')
         try:
             alp_fle = open(alp_path, 'r', encoding='utf-8')
